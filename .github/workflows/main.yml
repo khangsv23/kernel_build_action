@@ -1,34 +1,22 @@
-name: CI
+name: Build KernelSU Next Vayu
 on:
   workflow_dispatch:
 
 jobs:
-  ci-test:
-    name: Build Kernel
-    strategy:
-      fail-fast: false
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Build Kernel
-        uses: ./
+        uses: dabao1955/kernel_build_action@main
         with:
-          kernel-url: https://github.com/khangsv23/android_kernel_xiaomi_vayu
-          # Thay đổi quan trọng nhất ở đây:
-          kernel-dir: kernel/kernel
-          kernel-branch: misc
-          config: vayu_user_defconfig
+          kernel-url: https://github.com/LuffyTaro008/android_kernel_xiaomi_vayu
+          kernel-branch: 13
+          config: vayu_defconfig
           arch: arm64
-          aosp-gcc: true
-          aosp-clang: true
+          android-version: 13
           ksu: true
-          ksu-version: main
-          android-version: 12
-          aosp-clang-version: r383902
-          disable-lto: true
+          ksu-other: true
+          ksu-url: https://github.com/tiann/KernelSU # Hoặc link repo KSU Next cụ thể bạn muốn
           anykernel3: true
+          release: true
+          access-token: ${{ secrets.GITHUB_TOKEN }}

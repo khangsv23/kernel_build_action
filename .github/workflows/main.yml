@@ -19,8 +19,8 @@ jobs:
         uses: ./
         with:
           kernel-url: https://github.com/khangsv23/android_kernel_xiaomi_vayu
-          # Chỉnh sửa quan trọng: trỏ thẳng vào thư mục mà script tự tạo ra
-          kernel-dir: kernel
+          # Thay đổi quan trọng nhất ở đây:
+          kernel-dir: kernel/kernel
           kernel-branch: misc
           config: vayu_user_defconfig
           arch: arm64

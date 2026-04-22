@@ -8,7 +8,6 @@ on:
       - 'src/**/*.ts'
       - 'package.json'
       - 'yarn.lock'
-
   pull_request:
     paths:
       - '.github/workflows/main.yml'
@@ -16,7 +15,6 @@ on:
       - 'src/**/*.ts'
       - 'package.json'
       - 'yarn.lock'
-
   workflow_dispatch:
 
 jobs:
@@ -29,19 +27,19 @@ jobs:
       contents: write
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v6
-      with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Build Kernel
-      uses: ./
-      with:
-          kernel-url: https://github.com/AcmeUI-Devices/android_kernel_xiaomi_cas
-          kernel-dir: msm-4.19
-          kernel-branch: taffy
-          config: cas_defconfig
+      - name: Build Kernel
+        uses: ./
+        with:
+          # Link repo bạn đã Fork về tài khoản cá nhân
+          kernel-url: https://github.com/khangsv23/android_kernel_xiaomi_vayu
+          kernel-dir: msm-4.14
+          # Nhánh misc đã xác định trong ảnh trước
+          kernel-branch: misc
+          # File config chuẩn cho Poco X3 Pro
+          config: vayu_user_defconfig
           arch: arm64
           aosp-gcc: true
           aosp-clang: true

@@ -13,9 +13,9 @@ jobs:
           kernel-branch: 13
           config: vayu_defconfig
           arch: arm64
-          android-version: 12 # Dùng bộ tool Android 12
+          android-version: 12
           aosp-clang: true
-          # Thêm dòng dưới đây để sửa lỗi regalloc
+          aosp-gcc: true # THÊM DÒNG NÀY ĐỂ SỬA LỖI
           extra-make-args: '["KCFLAGS=-w", "LLVM=1", "LLVM_IAS=1"]'
           ksu: true
           ksu-other: true

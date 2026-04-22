@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Build Kernel
-        uses: dabao1955/kernel_build_action@main
+        uses: Tridepzal/kernel_build_action
         with:
           kernel-url: https://github.com/Tridepzal/Kernel-tri
           kernel-dir: msm-4.19

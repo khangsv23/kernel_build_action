@@ -18,9 +18,8 @@ jobs:
       - name: Build Kernel
         uses: ./
         with:
-          # Link repo bạn đã Fork thành công
           kernel-url: https://github.com/khangsv23/android_kernel_xiaomi_vayu
-          # Để trống để script tự tìm Makefile ở thư mục gốc
+          # QUAN TRỌNG: Để trống kernel-dir để script tìm Makefile ở thư mục gốc
           kernel-dir: 
           kernel-branch: misc
           config: vayu_user_defconfig

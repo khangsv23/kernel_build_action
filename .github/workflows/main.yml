@@ -19,8 +19,8 @@ jobs:
         uses: ./
         with:
           kernel-url: https://github.com/khangsv23/android_kernel_xiaomi_vayu
-          # QUAN TRỌNG: Để trống kernel-dir để script tìm Makefile ở thư mục gốc
-          kernel-dir: 
+          # Chỉnh sửa quan trọng: trỏ thẳng vào thư mục mà script tự tạo ra
+          kernel-dir: kernel
           kernel-branch: misc
           config: vayu_user_defconfig
           arch: arm64

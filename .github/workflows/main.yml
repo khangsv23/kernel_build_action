@@ -13,10 +13,13 @@ jobs:
           kernel-branch: 13
           config: vayu_defconfig
           arch: arm64
-          android-version: 13
+          android-version: 12 # Dùng bộ tool Android 12
+          aosp-clang: true
+          # Thêm dòng dưới đây để sửa lỗi regalloc
+          extra-make-args: '["KCFLAGS=-w", "LLVM=1", "LLVM_IAS=1"]'
           ksu: true
           ksu-other: true
-          ksu-url: https://github.com/tiann/KernelSU # Hoặc link repo KSU Next cụ thể bạn muốn
+          ksu-url: https://github.com/tiann/KernelSU
           anykernel3: true
           release: true
           access-token: ${{ secrets.GITHUB_TOKEN }}

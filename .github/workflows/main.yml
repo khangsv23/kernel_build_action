@@ -16,8 +16,14 @@ jobs:
           android-version: 12
           aosp-clang: true
           aosp-gcc: true
-          # Sửa đổi quan trọng nhất ở dòng dưới đây
-          extra-make-args: '["KCFLAGS=-w -Xclang -enable-trivial-auto-var-init-zero-knowing-it-will-be-removed-from-clang", "LLVM=1", "LLVM_IAS=1"]'
+          # Cấu hình mạnh tay hơn để sửa lỗi khởi tạo biến
+          extra-make-args: |
+            [
+              "LLVM=1",
+              "LLVM_IAS=1",
+              "KCFLAGS=-w -Xclang -enable-trivial-auto-var-init-zero-knowing-it-will-be-removed-from-clang",
+              "HOSTCFLAGS=-Xclang -enable-trivial-auto-var-init-zero-knowing-it-will-be-removed-from-clang"
+            ]
           ksu: true
           ksu-other: true
           ksu-url: https://github.com/tiann/KernelSU

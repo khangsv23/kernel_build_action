@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Build Kernel
         uses: dabao1955/kernel_build_action@main
-with:
+        with:
           kernel-url: https://github.com/LuffyTaro008/android_kernel_xiaomi_vayu
           kernel-branch: 13
           config: vayu_defconfig
